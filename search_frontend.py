@@ -87,14 +87,33 @@ def search():
     if len(query) == 0:
         return jsonify(res)
 
-    # BEGIN SOLUTION
+    # # EXAMPLE FOR TITLE-BODY COMPOISITION
+
+    # query_title = handle_query_title(query, use_stemming=True)
+    # # test to determine composition by query length
+    # if len(query_title) > 1:
+    #     body_weight=0.2
+    #     title_weight=0.8
+    # else:
+    #     body_weight=0
+    #     title_weight=1
+    # sorted_cosine_similarity_title = get_cossim_binary_title_dict(query_title, app, use_stemming=True)
+    # query_body, normalized_query_body = handle_query_body(query, use_stemming=True)
+    # sorted_cosine_similarity_body = get_cossim_tfidf_body_dict(query_body, normalized_query_body, app, use_stemming=True) 
+    
+    # merged_res = body_title_composition(body_weight, title_weight, sorted_cosine_similarity_body, sorted_cosine_similarity_title)
+    # for tup in merged_res:
+    #     res.append((tup[0], app.inverted_title_stem.doc_to_title[tup[0]]))
+
+
+    # # BEGIN SOLUTION
     query = handle_query_title(query, use_stemming=True)
     sorted_cosine_similarity = get_cossim_binary_title_dict(query, app, use_stemming=True)
     # create result with tuple (wiki_id, title) structure
     for tup in sorted_cosine_similarity:
         res.append((tup[0], app.inverted_title_stem.doc_to_title[tup[0]]))
     # END SOLUTION
-    return jsonify(res)
+    return jsonify(res[:100])
 
 
 
@@ -189,6 +208,7 @@ def search_anchor():
     if len(query) == 0:
         return jsonify(res)
     # BEGIN SOLUTION
+    #anchor and title query handling is the same
     query = handle_query_title(query, use_stemming=False)
     sorted_cosine_similarity = get_cossim_binary_anchor_dict(query, app)
     # create result with tuple (wiki_id, title) structure
