@@ -17,8 +17,8 @@ The indexes were stored in a bucket, page rank and page view were also implement
 ### search_frontend.py
 * search - tokanization, stopword removal and stemming of query. using binary ranking of document title. in the comments is an example for a body-title composition ranking.
 * search_body - tokanization, stopword removal of query. cosine similarity using tf-idf on the body of articles.
-* search_title - tokenization, stopword removalof query. binary ranking of document titles.
-* search_anchor - tokenization, stopword removalof query. binary ranking of the anchor texts of articles.
+* search_title - tokenization, stopword removal of query. binary ranking of document titles.
+* search_anchor - tokenization, stopword removal of query. binary ranking of the anchor texts of articles.
 * get_pagerank - the function returns the pagerank scores of a given list of article id's.
 * get_pageview - the function returns the pageview numbers of a given list of article id's.
 ### helper.py
