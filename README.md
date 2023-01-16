@@ -3,8 +3,8 @@
 
 ## Description
 
-This project has been done as part of the Information Retrieval project at BGU. <br/>
-Using a preproccessed wikipedia dump as the source of data, we built indexes using a cluster on google cloud platform(GCP). <br/>
+This project has been done as part of the Information Retrieval course at BGU. <br/>
+Using a preproccessed wikipedia dump as the source of data, we built indexes<br/> using a cluster on google cloud platform(GCP). 
 The indexes were stored in a bucket, page rank and page view were also implemented.
 
 ## Tech/Framework used
